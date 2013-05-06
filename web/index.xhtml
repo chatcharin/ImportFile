@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Import Excel To PostgreSQL</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <br/>
+        <h3>* File type : xxx.xls (Office 97/XP/2003) </h3>
+        <br/>
+        <h:form enctype="multipart/form-data">  
+
+            <p:fileUpload fileUploadListener="#{fileUploadController.handleFileUpload}"  
+                          mode="advanced"  
+                          update="messages"  
+                          multiple="true"  
+                          sizeLimit="10000000"   
+                          allowTypes="/(\.|\/)(gif|jpe?g|xls)$/"/>  
+
+            <p:growl id="messages" showDetail="true"/>  
+            <p:commandButton value="Submit" ajax="true"  
+                             actionListener="#{fileUploadController.upload}"/>  
+        </h:form>  
+        <br/>
+        <h3> Download Format </h3>
+        <br />
+        <a href="format/dbscustomer.xls" >Customer Format</a>
+        <br/>
+        <a href="format/dbsproduct.xls" >Product Format</a>
+        <br/>
+        <a href="format/dbsbudget.xls"  >Budget Format</a>
+    </h:body>
+</html>
+
